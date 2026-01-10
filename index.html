@@ -7,26 +7,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #10a37f; /* Verde ChatGPT */
+            --primary: #10a37f;
             --dark: #0f172a;
             --light: #f8fafc;
-            --accent: #f59e0b; /* Naranja para CTA */
+            --accent: #f59e0b;
             --text-gray: #334155;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
         body {
             font-family: 'Segoe UI', system-ui, sans-serif;
-            margin: 0;
-            padding: 0;
             color: var(--text-gray);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* --- Barra de Navegación --- */
         .navbar {
             background-color: rgba(15, 23, 42, 0.95);
-            padding: 10px 20px;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -37,10 +40,8 @@
         }
 
         .logo-container img {
-            height: auto; 
-            width: 80%;
-            max-width: 350px;
-            display: block;
+            height: 50px;
+            width: auto;
         }
 
         .nav-links {
@@ -58,9 +59,10 @@
             gap: 8px;
         }
 
-        .nav-links a:hover { color: var(--primary); }
+        .nav-links a:hover { 
+            color: var(--primary); 
+        }
 
-        /* Hero Section */
         header {
             background-color: var(--dark);
             color: white;
@@ -71,53 +73,95 @@
             background-position: center;
         }
 
-        h1 { font-size: 3rem; margin-bottom: 10px; line-height: 1.2; }
-        .highlight { color: var(--primary); }
-        .subheadline { font-size: 1.5rem; max-width: 800px; margin: 0 auto 30px auto; opacity: 0.9; }
+        h1 { 
+            font-size: 2.5rem; 
+            margin-bottom: 20px; 
+            line-height: 1.2; 
+        }
+        
+        .highlight { 
+            color: var(--primary); 
+        }
+        
+        .subheadline { 
+            font-size: 1.3rem; 
+            max-width: 800px; 
+            margin: 0 auto 30px auto; 
+            opacity: 0.9; 
+        }
 
         .cta-button {
             background-color: var(--primary);
             color: white;
             padding: 18px 40px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
             text-decoration: none;
             border-radius: 50px;
             transition: transform 0.2s, background 0.3s;
             display: inline-block;
             box-shadow: 0 4px 15px rgba(16, 163, 127, 0.4);
-            max-width: 90%;
-            box-sizing: border-box;
+            cursor: pointer;
         }
 
-        .cta-button:hover { transform: scale(1.05); background-color: #0d8c6c; }
+        .cta-button:hover { 
+            transform: scale(1.05); 
+            background-color: #0d8c6c; 
+        }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+        .container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            padding: 60px 20px; 
+        }
 
-        /* Pain Points */
-        .pain-section { background-color: #fff; text-align: center; }
+        .pain-section { 
+            background-color: #fff; 
+            text-align: center; 
+        }
+        
         .pain-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
+        
         .pain-card {
             background: #fff;
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             border-top: 5px solid #ef4444;
+            transition: transform 0.3s;
         }
-        .pain-icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
+        
+        .pain-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .pain-icon { 
+            font-size: 3rem; 
+            margin-bottom: 15px; 
+            display: block; 
+        }
 
-        /* --- Sección de Videos --- */
         .video-section {
             background-color: #f1f5f9;
             padding: 50px 20px;
             text-align: center;
             border-top: 1px solid #e2e8f0;
             border-bottom: 1px solid #e2e8f0;
+        }
+
+        .channel-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
         }
 
         .video-grid {
@@ -136,10 +180,15 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
 
-        .video-container iframe { width: 100%; height: 100%; border: none; }
+        .video-container iframe { 
+            width: 100%; 
+            height: 100%; 
+            border: none; 
+        }
 
-        /* --- Benefits / Solution --- */
-        .solution-section { background-color: var(--light); }
+        .solution-section { 
+            background-color: var(--light); 
+        }
         
         .benefit-item { 
             display: flex; 
@@ -150,6 +199,7 @@
         .benefit-item h3 {
             margin-top: 0; 
             margin-bottom: 10px;
+            color: var(--dark);
         }
 
         .check-icon { 
@@ -160,16 +210,50 @@
             line-height: 1; 
         }
 
-        /* Syllabus */
         .syllabus-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
         }
-        .module { background: white; border: 1px solid #e2e8f0; padding: 25px; border-radius: 8px; }
+        
+        .module { 
+            background: white; 
+            border: 1px solid #e2e8f0; 
+            padding: 25px; 
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .module h3 {
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .module ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .module li {
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .module li:before {
+            content: "▸";
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+        }
 
-        /* Instructor */
-        .instructor-section { background-color: var(--dark); color: white; padding: 60px 20px; }
+        .instructor-section { 
+            background-color: var(--dark); 
+            color: white; 
+            padding: 60px 20px; 
+        }
+        
         .instructor-flex-container {
             display: flex;
             align-items: center;
@@ -178,7 +262,14 @@
             max-width: 900px;
             margin: 0 auto;
         }
-        .qr-wrapper img { width: 150px; height: 150px; border-radius: 10px; border: 4px solid white; background: white; }
+        
+        .qr-wrapper img { 
+            width: 150px; 
+            height: 150px; 
+            border-radius: 10px; 
+            border: 4px solid white; 
+            background: white; 
+        }
         
         .wa-direct-link {
             display: inline-flex;
@@ -194,42 +285,73 @@
             border-radius: 50px;
             transition: all 0.3s;
         }
+        
+        .wa-direct-link:hover {
+            background: #25D366;
+            color: white;
+        }
 
-        /* Final CTA */
         .final-cta {
             text-align: center;
             padding: 80px 20px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
         }
 
-        /* Portfolio / Recursos */
-        .portfolio-section { background-color: #fff; padding: 50px 20px; border-top: 1px solid #e2e8f0; }
-        .portfolio-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px; }
+        .portfolio-section { 
+            background-color: #fff; 
+            padding: 50px 20px; 
+            border-top: 1px solid #e2e8f0; 
+        }
+        
+        .portfolio-grid { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 15px; 
+            margin-top: 20px; 
+        }
+        
         .portfolio-link {
             padding: 10px 20px;
-            border: 1px solid var(--primary);
+            border: 2px solid var(--primary);
             color: var(--primary);
             text-decoration: none;
             border-radius: 6px;
             font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .portfolio-link:hover {
+            background: var(--primary);
+            color: white;
         }
 
-        /* Media Queries */
+        footer {
+            background: #1e293b;
+            color: #94a3b8;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+        }
+
         @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            .navbar { flex-direction: column; gap: 15px; text-align: center; }
-            .logo-container img { margin: 0 auto; max-width: 280px; }
+            h1 { font-size: 1.8rem; }
+            .navbar { flex-direction: column; gap: 15px; }
             .instructor-flex-container { flex-direction: column; text-align: center; }
-            .benefit-item { text-align: left; }
         }
     </style>
 </head>
 <body>
 
 <nav class="navbar">
-    <div class="logo-container"><img src="logo.jpeg" alt="Logo Marca"></div>
+    <div class="logo-container">
+        <div style="color: var(--primary); font-size: 1.5rem; font-weight: bold;">
+            <i class="fas fa-brain"></i> ChatGPT Pro
+        </div>
+    </div>
     <div class="nav-links">
-        <a href="https://claude.ai/public/artifacts/ff4a25e1-6dba-4414-a5ff-974b79500c2d" target="_blank"><i class="fas fa-file-user"></i> Mi CV</a>
-        <a href="https://wa.me/message/JG7VSAITBDBVO1" target="_blank" style="color: #25D366;"><i class="fab fa-whatsapp"></i> Contacto</a>
+        <a href="#" target="_blank"><i class="fas fa-file-user"></i> Mi CV</a>
+        <a href="#" target="_blank" style="color: #25D366;"><i class="fab fa-whatsapp"></i> Contacto</a>
     </div>
 </nav>
 
@@ -241,7 +363,7 @@
 
 <div class="pain-section">
     <div class="container">
-        <h2 style="color: var(--dark); font-size: 2rem;">¿Te sientes identificado con esto?</h2>
+        <h2 style="color: var(--dark); font-size: 2rem; margin-bottom: 20px;">¿Te sientes identificado con esto?</h2>
         <div class="pain-grid">
             <div class="pain-card">
                 <span class="pain-icon">🛑</span>
@@ -264,8 +386,8 @@
 
 <div class="video-section">
     <div class="container">
-        <h2 style="color: var(--dark); font-size: 2rem; margin-bottom: 5px;">Clases y Demostraciones</h2>
-        <a href="https://www.youtube.com/@besmart" class="channel-link" target="_blank"><i class="fab fa-youtube"></i> Ver canal completo</a>
+        <h2 style="color: var(--dark); font-size: 2rem; margin-bottom: 10px;">Clases y Demostraciones</h2>
+        <a href="#" class="channel-link"><i class="fab fa-youtube"></i> Ver canal completo</a>
         <div class="video-grid">
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/A5w-dEgIU1M" allowfullscreen></iframe>
@@ -282,7 +404,7 @@
 
 <div class="solution-section">
     <div class="container">
-        <h2 style="color: var(--primary); font-size: 2rem; text-align: center;">Transforma Miedos en Ventajas Competitivas</h2>
+        <h2 style="color: var(--primary); font-size: 2rem; text-align: center; margin-bottom: 30px;">Transforma Miedos en Ventajas Competitivas</h2>
         <div style="max-width: 800px; margin: 40px auto 0 auto;">
             <div class="benefit-item">
                 <span class="check-icon">✓</span>
@@ -317,31 +439,73 @@
 </div>
 
 <div class="container">
-    <h2 style="text-align: center; margin-bottom: 40px;">Tu Ruta de Aprendizaje (3 Sesiones Intensivas)</h2>
+    <h2 style="text-align: center; margin-bottom: 40px; color: var(--dark); font-size: 2rem;">Tu Ruta de Aprendizaje (3 Sesiones Intensivas)</h2>
     <div class="syllabus-grid">
-        <div class="module"><h3>📅 Sesión 1: Fundamentos Profesionales</h3><ul><li>Privacidad Absoluta.</li><li>Modelos Auto vs. Thinking.</li></ul></div>
-        <div class="module"><h3>🚀 Sesión 2: Herramientas de Poder</h3><ul><li>Modo Agente.</li><li>Canvas y Automatización.</li></ul></div>
-        <div class="module"><h3>🤖 Sesión 3: Asistentes y Maestría en Prompts</h3><ul><li>GPTs Propios.</li><li>Ingeniería de Prompts.</li></ul></div>
+        <div class="module">
+            <h3>📅 Sesión 1: Fundamentos y Organización Profesional</h3>
+            <ul>
+                <li>Introducción general al curso</li>
+                <li>Configuración esencial de ChatGPT</li>
+                <li>Modelos de pensamiento (Auto, Instant, Thinking)</li>
+                <li>Chat temporal y privacidad</li>
+                <li>Gestión de confidencialidad</li>
+                <li>Memoria y personalización</li>
+                <li>Administración de memoria</li>
+                <li>Proyectos como sistema de organización</li>
+                <li>Proyectos como espacios de trabajo</li>
+            </ul>
+        </div>
+        <div class="module">
+            <h3>🚀 Sesión 2: Herramientas de Productividad y Automatización</h3>
+            <ul>
+                <li>Herramientas integradas de ChatGPT</li>
+                <li>Crear imágenes con IA</li>
+                <li>Investigación avanzada en web</li>
+                <li>Estudio y aprendizaje asistido</li>
+                <li>Lienzo (Canvas) para edición de texto</li>
+                <li>Fuentes y conectores externos</li>
+                <li>Modo agente y automatización</li>
+            </ul>
+        </div>
+        <div class="module">
+            <h3>🤖 Sesión 3: GPTs y Maestría en Prompts</h3>
+            <ul>
+                <li>GPTs personalizados</li>
+                <li>Marketplace de GPTs</li>
+                <li>Diseño y entrenamiento de asistentes</li>
+                <li>Corrección de alucinaciones</li>
+                <li>Prompting directo con ChatGPT</li>
+                <li>GPTs especializados en prompts</li>
+                <li>Prompting desde plataforma OpenAI</li>
+                <li>Prompting con NotebookLM</li>
+                <li>Tendencias futuras de IA</li>
+                <li>Navegador Atlas y convergencia IA-Web</li>
+            </ul>
+        </div>
     </div>
 </div>
 
 <div class="instructor-section">
     <div class="container">
         <div class="instructor-flex-container">
-            <div class="qr-wrapper"><img src="qr.png" alt="QR"></div>
+            <div class="qr-wrapper">
+                <div style="width: 150px; height: 150px; background: white; display: flex; align-items: center; justify-content: center; border-radius: 10px;">
+                    <i class="fas fa-qrcode" style="font-size: 100px; color: #333;"></i>
+                </div>
+            </div>
             <div class="instructor-info">
                 <h2>Tu Instructor: Pedro Medina</h2>
                 <p>Ingeniero en Sistemas con Maestrías en Negocios y Productividad. Pedro no te enseñará teoría aburrida; te enseñará cómo él usa estas herramientas para ahorrar horas de trabajo y gestionar negocios reales.</p>
-                <a href="https://wa.me/message/JG7VSAITBDBVO1" class="wa-direct-link" target="_blank"><i class="fab fa-whatsapp"></i> Hablar con Pedro</a>
+                <a href="#" class="wa-direct-link"><i class="fab fa-whatsapp"></i> Hablar con Pedro</a>
             </div>
         </div>
     </div>
 </div>
 
 <div class="final-cta" id="registro">
-    <h2>El futuro pertenece a quienes dominan la IA hoy.</h2>
+    <h2 style="color: var(--dark); font-size: 2rem; margin-bottom: 20px;">El futuro pertenece a quienes dominan la IA hoy.</h2>
     <p style="font-size: 1.2rem; margin-bottom: 30px;">Con la llegada de herramientas como el navegador <strong>Atlas</strong>, quien no se actualice, desaparecerá.</p>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSemYuen_Rb1M5556Z8oSoSyXLbXAgB7Ohij6jSbpkmbxUJY7w/viewform" class="cta-button" style="background-color: var(--accent);">APARTAR MI LUGAR AHORA</a>
+    <a href="#" class="cta-button" style="background-color: var(--accent);">APARTAR MI LUGAR AHORA</a>
     <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.7;">Garantía de satisfacción. Cupo limitado para atención personalizada.</p>
 </div>
 
@@ -349,13 +513,13 @@
     <div class="container">
         <h3 style="text-align: center; color: var(--text-gray); margin-bottom: 25px;">Recursos adicionales</h3>
         <div class="portfolio-grid">
-            <a href="https://claude.ai/public/artifacts/36b7abf0-70e0-47e6-a4b7-871bdfb0b8dd" class="portfolio-link">Contenido temático</a>
-            <a href="https://claude.ai/public/artifacts/594c90da-6b07-4cb5-a9a8-fc4e7efa8415" class="portfolio-link">Problema y necesidades</a>
+            <a href="#" class="portfolio-link">Contenido temático</a>
+            <a href="#" class="portfolio-link">Problema y necesidades</a>
         </div>
     </div>
 </div>
 
-<footer style="background: #eee; text-align: center; padding: 20px; font-size: 0.8rem;">
+<footer>
     <p>&copy; 2025 Curso Experto en ChatGPT. Todos los derechos reservados.</p>
 </footer>
 
