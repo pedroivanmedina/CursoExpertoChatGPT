@@ -23,6 +23,69 @@
             overflow-x: hidden;
         }
 
+        /* --- Barra de Urgencia --- */
+        .urgency-bar {
+            background: linear-gradient(90deg, #b45309, #d97706, #b45309);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite linear;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+        }
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        .urgency-bar span.spots {
+            background: white;
+            color: #b45309;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-weight: 800;
+            margin: 0 6px;
+        }
+        .urgency-bar .countdown {
+            font-size: 1.05rem;
+            font-weight: 800;
+            background: rgba(0,0,0,0.2);
+            padding: 2px 10px;
+            border-radius: 20px;
+            margin-left: 8px;
+            letter-spacing: 0.05em;
+        }
+
+        /* --- Precio --- */
+        .price-block {
+            margin: 30px auto 10px;
+            display: inline-block;
+        }
+        .price-old {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.55);
+            text-decoration: line-through;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .price-new {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: #fde68a;
+            display: block;
+            line-height: 1;
+        }
+        .price-label {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            margin-top: 6px;
+            display: block;
+        }
+
         /* --- Barra de Navegación --- */
         .navbar {
             background-color: rgba(15, 23, 42, 0.95);
@@ -225,6 +288,11 @@
 </head>
 <body>
 
+<!-- Barra de Urgencia -->
+<div class="urgency-bar">
+    ⚡ ¡Oferta de lanzamiento! Solo quedan <span class="spots" id="spots-count">7</span> lugares disponibles &nbsp;|&nbsp; Precio especial termina en: <span class="countdown" id="countdown">--:--:--</span>
+</div>
+
 <nav class="navbar">
     <div class="logo-container"><img src="logo.jpeg" alt="Logo Marca"></div>
     <div class="nav-links">
@@ -236,7 +304,13 @@
 <header>
     <h1>No compitas <em style="color: var(--primary);">contra</em> la IA,<br>compite <span class="highlight"><em>con</em></span> la IA.</h1>
     <p class="subheadline">Integrar IA a tu negocio ya no es una ventaja. Es la línea entre crecer con estabilidad o perder relevancia de forma inevitable.</p>
-    <a href="#registro" class="cta-button">QUIERO DOMINAR CHATGPT AHORA</a>
+    <div class="price-block">
+        <span class="price-old">$1,250 MXN</span>
+        <span class="price-new">$999 MXN</span>
+        <span class="price-label">Pago único · Acceso de por vida a grabaciones</span>
+    </div>
+    <br><br>
+    <a href="#registro" class="cta-button" style="background-color: var(--accent); box-shadow: 0 4px 20px rgba(245, 158, 11, 0.5);">QUIERO DOMINAR CHATGPT AHORA</a>
 </header>
 
 <div class="pain-section">
@@ -414,6 +488,37 @@
     <p>&copy; 2026 Curso Experto en ChatGPT. Todos los derechos reservados.</p>
 </footer>
 
+<script>
+    // Countdown: 48 horas desde la primera visita, persistido en sessionStorage
+    (function() {
+        const KEY = 'cta_deadline';
+        let deadline = sessionStorage.getItem(KEY);
+        if (!deadline) {
+            deadline = Date.now() + 48 * 60 * 60 * 1000;
+            sessionStorage.setItem(KEY, deadline);
+        }
+        deadline = parseInt(deadline);
+
+        function update() {
+            const now = Date.now();
+            const diff = deadline - now;
+            const el = document.getElementById('countdown');
+            if (!el) return;
+            if (diff <= 0) {
+                el.textContent = '00:00:00';
+                return;
+            }
+            const h = Math.floor(diff / 3600000);
+            const m = Math.floor((diff % 3600000) / 60000);
+            const s = Math.floor((diff % 60000) / 1000);
+            el.textContent =
+                String(h).padStart(2,'0') + ':' +
+                String(m).padStart(2,'0') + ':' +
+                String(s).padStart(2,'0');
+        }
+        update();
+        setInterval(update, 1000);
+    })();
+</script>
 </body>
 </html>
-
