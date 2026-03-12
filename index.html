@@ -258,6 +258,81 @@
             transition: all 0.3s;
         }
 
+        /* --- Testimonios --- */
+        .testimonials-section {
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 1px solid #d1fae5;
+            border-bottom: 1px solid #d1fae5;
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 40px auto 0;
+        }
+        .testimonial-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(16,163,127,0.08);
+            border: 1px solid #d1fae5;
+            text-align: left;
+            position: relative;
+        }
+        .testimonial-card::before {
+            content: '"';
+            font-size: 5rem;
+            color: var(--primary);
+            opacity: 0.15;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+            font-family: Georgia, serif;
+        }
+        .testimonial-stars {
+            color: #f59e0b;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+        .testimonial-text {
+            font-size: 0.97rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .testimonial-avatar {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), #0d8c6c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .testimonial-name {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+        .testimonial-role {
+            font-size: 0.82rem;
+            color: #64748b;
+        }
+
         /* Final CTA */
         .final-cta {
             text-align: center;
@@ -336,23 +411,6 @@
     </div>
 </div>
 
-<div class="video-section">
-    <div class="container">
-        <h2 style="color: var(--dark); font-size: 2rem; margin-bottom: 5px;">Clases y Demostraciones</h2>
-        <div class="video-grid">
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/g013k59Nki0" allowfullscreen></iframe>
-            </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/EyBvixMxbNo" allowfullscreen></iframe>
-            </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/FyEOKjo8ujE" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="solution-section">
     <div class="container">
         <h2 style="color: var(--primary); font-size: 2rem; text-align: center;">Transforma Miedos en Ventajas Competitivas</h2>
@@ -389,6 +447,24 @@
                     <h3>Automatizar lo Aburrido (Modo Agente)</h3>
                     <p>Configura al Agente para que tome el control de tu navegador, llene formularios y redacte correos mientras tú te enfocas en vender.</p>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="video-section">
+    <div class="container">
+        <h2 style="color: var(--dark); font-size: 2rem; margin-bottom: 5px;">Mira el Curso en Acción</h2>
+        <p style="text-align:center; color: var(--text-gray); margin-bottom: 0;">Estas son clases y demostraciones reales del contenido que aprenderás.</p>
+        <div class="video-grid">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/g013k59Nki0" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/EyBvixMxbNo" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/FyEOKjo8ujE" allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -467,21 +543,54 @@
     </div>
 </div>
 
+<!-- Testimonios -->
+<div class="testimonials-section">
+    <div style="max-width: 1100px; margin: 0 auto;">
+        <h2 style="font-size: 2rem; color: var(--dark); margin-bottom: 5px;">Lo que dicen quienes ya lo tomaron</h2>
+        <p style="color: #64748b; font-size: 1rem;">Empresarios y profesionistas que transformaron su forma de trabajar.</p>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">Llegué sin saber casi nada de ChatGPT y salí con una forma completamente diferente de gestionar mi empresa. Lo de los Proyectos me cambió la vida: ya no pierdo tiempo explicando contexto cada vez que abro un chat nuevo.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">MR</div>
+                    <div>
+                        <div class="testimonial-name">Marcos Rodríguez</div>
+                        <div class="testimonial-role">Director General, Constructora MR</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">Tenía mucho miedo de subir información confidencial de mis clientes. El módulo de Chat Temporal me quitó ese miedo de encima. Ahora uso ChatGPT a diario para revisar contratos sin ninguna preocupación.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">SV</div>
+                    <div>
+                        <div class="testimonial-name">Sofía Valenzuela</div>
+                        <div class="testimonial-role">Abogada corporativa, despacho propio</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">Pedro explica todo con ejemplos reales de negocios, nada de teoría vacía. El Modo Agente me pareció increíble: lo que antes me tomaba 2 horas de trabajo administrativo, ahora lo delego en minutos.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">JL</div>
+                    <div>
+                        <div class="testimonial-name">Jorge Leal</div>
+                        <div class="testimonial-role">Gerente de Operaciones, LogiMex</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="final-cta" id="registro">
     <h2 style="font-size: 2rem;">El futuro pertenece a quienes dominan la IA hoy.</h2>
     <p style="font-size: 1.2rem; margin-bottom: 30px;">Con la llegada de herramientas como el navegador <strong>Atlas</strong>, quien no se actualice, desaparecerá.</p>
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSemYuen_Rb1M5556Z8oSoSyXLbXAgB7Ohij6jSbpkmbxUJY7w/viewform" class="cta-button" style="background-color: var(--accent);" target="_blank">APARTAR MI LUGAR AHORA</a>
     <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.7;">Garantía de satisfacción. Cupo limitado para atención personalizada.</p>
-</div>
-
-<div class="portfolio-section">
-    <div class="container" style="padding: 0;">
-        <h2 style="text-align: center; color: var(--text-gray); margin-bottom: 40px; font-size: 2rem;">Recursos adicionales</h2>
-        <div class="portfolio-grid">
-            <a href="https://claude.ai/public/artifacts/36b7abf0-70e0-47e6-a4b7-871bdfb0b8dd" class="portfolio-link" target="_blank">Contenido temático</a>
-            <a href="https://claude.ai/public/artifacts/594c90da-6b07-4cb5-a9a8-fc4e7efa8415" class="portfolio-link" target="_blank">Problema y necesidades</a>
-        </div>
-    </div>
 </div>
 
 <footer style="background: #eee; text-align: center; padding: 20px; font-size: 0.8rem;">
